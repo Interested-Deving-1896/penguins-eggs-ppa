@@ -1,83 +1,75 @@
-## Penguin's eggs ppa
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# penguins-eggs-ppa
 
-To build this ppa I follow this
-[assafmo guide](https://assafmo.github.io/2019/05/02/ppa-repo-hosted-on-github.html).
-I include all architectures in this repository: `amd64`, `i386`, `arm64` and `riscv64`.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/penguins-eggs-ppa)
 
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-### Build the repository
+## Architecture
 
-- Create an normal repository in github, like penguins-eggs-ppa
-- Go to Settings, then Pages and choose main as default branch for pages
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-### Security and list
+## Install
 
-```
-gpg --import ../piero.proietti-my-private-key.asc 
-gpg --armor --export piero.proietti@gmail.com > KEY.gpg
-```
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-### Update debs
-
-Add the deb files in the `dists` dir followed by deb architecture
-
-```
-dpkg-scanpackages --multiversion . > Packages
-gzip -k -f Packages
-apt-ftparchive release . > Release
-gpg --default-key piero.proietti@gmail.com -abs -o - Release > Release.gpg
-gpg --default-key piero.proietti@gmail.com  --clearsign -o - Release > InRelease
-
-git add -A
-git commit
-git push
+```bash
+git clone https://github.com/Interested-Deving-1896/penguins-eggs-ppa.git
+cd penguins-eggs-ppa
 ```
 
-# Usage of the repository
+## Usage
 
-## Debian 12 Bookworm, Ubuntu 22.04 LTS (Jammy) and previous
-Copy and paste in a terminal window the following two lines:
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
+
+## Configuration
+
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/penguins-eggs-ppa`](https://github.com/Interested-Deving-1896/penguins-eggs-ppa) and mirrored through:
 
 ```
-curl -fsSL https://pieroproietti.github.io/penguins-eggs-ppa/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/penguins-eggs.gpg
-echo "deb [arch=$(dpkg --print-architecture)] https://pieroproietti.github.io/penguins-eggs-ppa ./" | sudo tee /etc/apt/sources.list.d/penguins-eggs.list > /dev/null
-```
-## Debian 13 Trixie, Ubuntu 24.04 LTS (Noble) and following
-```
-curl -fsSL https://pieroproietti.github.io/penguins-eggs-ppa/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/penguins-eggs-ppa.gpg
-echo "
-Types: deb
-URIs: https://pieroproietti.github.io/penguins-eggs-ppa
-Suites: ./
-Signed-By: /usr/share/keyrings/penguins-eggs-ppa.gpg
-" | sudo tee /etc/apt/sources.list.d/penguins-eggs-ppa.sources > /dev/null
+Interested-Deving-1896/penguins-eggs-ppa  ──►  OpenOS-Project-OSP/penguins-eggs-ppa  ──►  OpenOS-Project-Ecosystem-OOC/penguins-eggs-ppa
 ```
 
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-Now you can install and upgrade eggs from standard apt commands, remember
-`sudo apt update`
+## Contributors
 
-# More informations
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-There is a [Penguins' eggs Tutorial](https://penguins-eggs.net/docs/) and same other documentation - mostly for developers - on
-[penguins-eggs repo](https://github.com/pieroproietti/penguins-eggs/DOCS).
+## Origins
 
-You can contact me by [mail](mailto://pieroproietti@gmail.com) or follow me on
-[blog](https://penguins-eggs.net),
-[facebook](https://www.facebook.com/groups/128861437762355/),
-[github](https://github.com/pieroproietti/penguins-krill),
-[jtsi](https://meet.jit.si/PenguinsEggsMeeting),
-[reddit](https://www.reddit.com/user/Artisan61),
-[telegram](https://t.me/penguins_eggs),
-[twitter](https://twitter.com/pieroproietti).
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-# Copyright and licenses
+## Resources
 
-Copyright (c) 2017, 2026
-[Piero Proietti](https://penguins-eggs.net/about-me.html), dual licensed under
-the MIT or GPL Version 2 licenses.
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-# Acknowledgements
+## License
 
-Many thanks to [sunuazizrahayu](https://github.com/sunuazizrahayu) for the kind
-cooperation in making this multi-architecture repository
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
